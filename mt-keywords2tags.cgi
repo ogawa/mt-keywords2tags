@@ -6,7 +6,7 @@
 # This software is provided as-is. You may use it for commercial or 
 # personal use. If you distribute it, please keep this notice intact.
 #
-# Copyright (c) 2006 Hirotaka Ogawa
+# Copyright (c) 2006,2007 Hirotaka Ogawa
 #
 use strict;
 sub BEGIN {
@@ -45,7 +45,7 @@ while (my $e = $iter->()) {
     next unless $e->keywords;
     my @tags = split_tags($e->keywords, 1);
     next unless scalar @tags;
-    $e->set_tags(@tags);
+    $e->add_tags(@tags);
     $e->save_tags;
     print $e->id . ": " . join(', ', @tags) . "\n";
 }
